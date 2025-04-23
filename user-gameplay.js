@@ -6,24 +6,24 @@ while (input !== 'q') {
     console.log("(w)up,(s)down,(a)left,(d)right,(q)quit");
     input = prompt('Enter your move: ');
 
-    switch (input) {
+    switch (input.toLowerCase()) {                                         // Convert input to lowercase to handle both 'W' and 'w'
         case 'w':
-            console.log("You moved up! \n");                               //user moved up
+            console.log("You moved up! \n");                               // User moved up
             break;
         case 's':
-            console.log("You moved down! \n");                             //user moved down
+            console.log("You moved down! \n");                             // User moved down
             break;
         case 'a':
-            console.log("You moved left! \n");                            //user moved left    
+            console.log("You moved left! \n");                             // User moved left    
             break;
         case 'd':
-            console.log("You moved right! \n");                           //user moved right   
+            console.log("You moved right! \n");                            // User moved right   
             break;
         case 'q':
-            console.log("You have quitted the game. Goodbye! \n");        //user quit the game
+            console.log("You have quitted the game. Goodbye! \n");         // User quit the game
             process.exit();
             break;
         default:
-            console.log("Invalid input, please try again \n");           //user input is invalid
+            console.log("Invalid input, please try again \n");             // User input is invalid
     }
 }
