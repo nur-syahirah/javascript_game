@@ -6,14 +6,12 @@ const prompt = new promptSync({ sigint: true });
 
 // Constants for the game
 const WIN = "Yeayyy! Finally, you found ze hat!";
-//const LOSE = "Ohoh! You fell into a hole!";
 const OUT_BOUNDS = "Oppsie! You are going out of field!";
 const INTO_HOLE = "BYE! You fell into a hole!";
 const WELCOME = "   EllO! Welcome to Find Your Hat Game!";
 const DIFFICULTY_PROMPT = "Choose difficulty level: \n 1: Easy (fewer holes) \n 2: Difficult (more holes) \n q: Quit game";
 const DIRECTIONS = "Which direction: \n up(w) \n down(s)\n left(a)\n right(d)?\n";
 const QUIT = "Or press (q) or (Q) to quit";
-const END_GAME = "GAME OVER";
 const NOT_RECOGNIZED = "\n Sadly, that input was not recognized. Try again! ";
 
 // Constants for difficulty levels
@@ -110,7 +108,7 @@ class Field {
         console.log(chalk.yellow(OUT_BOUNDS));
         this.playerPosition.row = prevRow;
         this.playerPosition.col = prevCol;
-        return true; // Continue the game
+        return true;                                                         // Game continues
       }
 
     // Check the player's new position
@@ -119,6 +117,7 @@ class Field {
     // Check if player found the hat
     if (currentPosition === HAT) {
       console.log(chalk.green(WIN));
+
     // Create a large, dramatic winner message using ASCII art
     const winnerMsg = `
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,15 +128,16 @@ class Field {
     ~    _|        _|_|      _|_|             _|  _|      _|_|_|  _|      _|  _| ~
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     `;
+
     // Use chalkAnimation for a dramatic effect
     const animation = chalkAnimation.pulse(winnerMsg);
     
     // Allow animation to display for a few seconds before exiting
     setTimeout(() => {
-      animation.stop(); // Stop the animation
-      this.gamePlay = false; // Set gamePlay to false
-      process.exit(); // Exit the process
-    }, 5200); // Display for 5.2 seconds to finish the msg display
+      animation.stop();                                                     // Stop the animation
+      this.gamePlay = false;                                                // Set gamePlay to false
+      process.exit();                                                       // Exit the process
+    }, 5200);                                                               // Display for 5.2 seconds to finish the msg display
      return false;
     }
 
@@ -157,7 +157,8 @@ class Field {
 
   // End the game
   endGame() {
-    // Create a large, dramatic GAME OVER message using ASCII art
+
+    // Create a dramatic GAME OVER message using ASCII art
     const gameOverMsg = `
     ██████╗  █████╗ ███╗   ███╗███████╗     ██████╗ ██╗   ██╗███████╗██████╗ 
     ██╔════╝ ██╔══██╗████╗ ████║██╔════╝    ██╔═══██╗██║   ██║██╔════╝██╔══██╗
@@ -171,11 +172,10 @@ class Field {
     
     // Allow animation to display for a few seconds before exiting
     setTimeout(() => {
-      animation.stop(); // Stop the animation
-      //console.log(chalk.redBright(END_GAME)); // Print the original end game message
-      this.gamePlay = false; // Set gamePlay to false
-      process.exit(); // Exit the process
-    }, 5000); // Display for 3 seconds
+      animation.stop();                                                     // Stop the animation
+      this.gamePlay = false;                                                // Set gamePlay to false
+      process.exit();                                                       // Exit the process
+    }, 5000);                                                               // Display animation for 5 seconds
   }
 
   // Method to update the game
