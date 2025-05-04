@@ -25,10 +25,10 @@ for (let i = 0; i < rows; i++) {
 }
 
 //Populate player at the starting position
-field[0][0] = PLAYER;                //Set player position
+field[0][0] = PLAYER;                                         // Set player position
 
 for (let row of field){
-    console.log(row.join(''));            // Join each element together per row
+    console.log(row.join(''));                                // Join each element together per row
 }
 
-console.log(field);                 // Print the field
+console.log(field);                                           // Print the field
